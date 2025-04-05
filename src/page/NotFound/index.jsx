@@ -1,4 +1,4 @@
-const NotFound = () => {
+function NotFound() {
   return (
     <div>
       访问地址不存在
