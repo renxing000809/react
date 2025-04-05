@@ -1,7 +1,7 @@
 const New = () => {
   return (
     <div>
-      我是Month
+      <h1>吃饭，听会歌</h1>
     </div>
   )
 }

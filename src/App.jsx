@@ -5,7 +5,7 @@ import './App.css'
 import '@/theme.css'
 import {Button} from "antd-mobile";
 import {useDispatch, useSelector} from "react-redux";
-import {decrement, increment} from "@/store/modules/counterStore.jsx";
+import {decrement, increment, toNum} from "@/store/modules/counterStore.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,12 +35,15 @@ function App() {
         <button onClick={() => dispatch(decrement())}>
           -
         </button>
+        <button onClick={() => dispatch(toNum(30))}>
+          to
+        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
       <p className="read-the-docs">
-      Click on the Vite and React logos to learn more
+        Click on the Vite and React logos to learn more
       </p>
     </>
   )
