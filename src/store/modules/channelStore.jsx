@@ -17,7 +17,7 @@ const channelStore = createSlice({
 // 异步请求部分
 const {setChannels} = channelStore.actions
 
-const fetchChannelList = () => {
+function fetchChannelList() {
   return async (dispatch) => {
     const res = await axios.get('http://geek.itheima.net/v1_0/channels')
     dispatch(setChannels(res.data.data.channels))

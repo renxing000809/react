@@ -10,9 +10,9 @@ import {fetchChannelList} from "@/store/modules/channelStore.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
-  const {num} = useSelector(state => state.counter)
+  // 获取全局的state
+  const globalState = useSelector(state => state)
   const dispatch = useDispatch()
-  const {channelList} = useSelector(state => state.channel)
   useEffect(() => {
     dispatch(fetchChannelList())
   }, [dispatch]);
@@ -36,7 +36,7 @@ function App() {
         <button onClick={() => dispatch(increment())}>
           +
         </button>
-        <span>{num}</span>
+        <span>{globalState.counter.num}</span>
         <button onClick={() => dispatch(decrement())}>
           -
         </button>
@@ -51,7 +51,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <ul>
-        {channelList.map(item => <li key={item.id}>{item.name}</li>)}
+        {globalState.channel.channelList.map(item => <li key={item.id}>{item.name}</li>)}
       </ul>
     </>
   )
