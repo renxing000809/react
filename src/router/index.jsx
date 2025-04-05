@@ -7,6 +7,9 @@ import Layout from "../page/Layout/index.jsx";
 import Board from "../page/Board/index.jsx";
 import About from "../page/About/index.jsx";
 import NotFound from "../page/NotFound/index.jsx";
+import Month from "@/page/Month/index.jsx";
+import Year from "@/page/Year/index.jsx";
+import New from "@/page/New/index.jsx";
 
 // createBrowserRouter history模式路由, createHashRouter hash模式路由
 const router = createBrowserRouter([
@@ -15,16 +18,20 @@ const router = createBrowserRouter([
     element: <App/>
   },
   {
+    path: '/new',
+    element: <New/>
+  },
+  {
     path: '/layout',
     element: <Layout/>,
     children: [
       {
         index: true,
-        element: <Board/>,
+        element: <Month/>,
       },
       {
-        path: '/layout/about',
-        element: <About/>,
+        path: '/layout/year',
+        element: <Year/>,
       },
     ],
   },
