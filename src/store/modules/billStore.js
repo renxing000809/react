@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 
 const billStore = createSlice({
-  name: "bill",
+  name: "bill1",
   // 数据状态state
   initialState: {
     billList: []
@@ -14,6 +14,8 @@ const billStore = createSlice({
     }
   }
 })
+
+console.log(billStore)
 
 // 解构actionCreater函数
 const {setBillList} = billStore.actions

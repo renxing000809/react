@@ -10,7 +10,7 @@ import {fetchChannelList} from "@/store/modules/channelStore.jsx";
 
 function App() {
   const [count, setCount] = useState(0)
-  // 获取全局的state
+  // 获取全局的state, 参数为一个selector函数，可以选择想要的状态
   const globalState = useSelector(state => state)
   const dispatch = useDispatch()
   useEffect(() => {
