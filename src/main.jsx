@@ -13,9 +13,9 @@ import App from "@/App.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/*<RouterProvider router={router}/>*/}
     <Provider store={store}>
-      <App />
+      <RouterProvider router={router}/>
+      {/*<App />*/}
     </Provider>
   </StrictMode>
 )
