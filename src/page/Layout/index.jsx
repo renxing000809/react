@@ -1,21 +1,56 @@
-import {Link, Outlet} from "react-router-dom";
-import {Button} from "antd-mobile";
-import {useEffect} from "react";
-import {useDispatch} from "react-redux";
-import {getBillList} from "@/store/modules/billStore.js";
+import { TabBar } from "antd-mobile"
+import { useEffect } from "react"
+import { Outlet, useNavigate } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { getBillList } from "@/store/modules/billStore"
+import './index.scss'
+import {
+  BillOutline,
+  CalculatorOutline,
+  AddCircleOutline
+} from 'antd-mobile-icons'
+
+const tabs = [
+  {
+    key: '/layout',
+    title: '月度账单',
+    icon: <BillOutline />,
+  },
+  {
+    key: '/layout/new',
+    title: '记账',
+    icon: <AddCircleOutline />,
+  },
+  {
+    key: '/layout/year',
+    title: '年度账单',
+    icon: <CalculatorOutline />,
+  },
+]
 
 const Layout = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getBillList())
-  }, [dispatch]);
+  }, [dispatch])
+
+  // 切换菜单跳转路由
+  const navigate = useNavigate()
+  const swithRoute = (path) => {
+    console.log(path)
+    navigate(path)
+  }
   return (
-    <div>
-      <Outlet/>
-      我是一级路由layout组件 <br/>
-      <Button color={"primary"}>全局按钮</Button>
-      <div className={"purple"}>
-        <Button color={"primary"}>局部按钮</Button>
+    <div className="layout">
+      <div className="container">
+        <Outlet />
+      </div>
+      <div className="footer">
+        <TabBar onChange={swithRoute}>
+          {tabs.map(item => (
+            <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+          ))}
+        </TabBar>
       </div>
     </div>
   )

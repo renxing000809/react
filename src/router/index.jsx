@@ -33,6 +33,10 @@ const router = createBrowserRouter([
         path: '/layout/year',
         element: <Year/>,
       },
+      {
+        path: '/layout/new',
+        element: <New/>,
+      }
     ],
   },
   {
